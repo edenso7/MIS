@@ -1,0 +1,263 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sleek Course Management System</title>
+
+  <!-- Inter Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+
+  <style>
+    :root {
+      --primary: #2563eb;
+      --secondary: #7c3aed;
+      --bg: #f8fafc;
+      --card: #ffffff;
+      --text: #0f172a;
+      --muted: #64748b;
+      --radius: 8px;
+      --shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: "Inter", sans-serif;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      display: flex;
+      min-height: 100vh;
+    }
+
+    aside {
+      width: 260px;
+      background: linear-gradient(180deg, var(--primary), var(--secondary));
+      color: #fff;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      transition: width 0.3s ease;
+    }
+
+    aside h1 {
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin-bottom: 32px;
+    }
+
+    nav a {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: #e5e7eb;
+      text-decoration: none;
+      padding: 12px;
+      border-radius: var(--radius);
+      margin-bottom: 8px;
+      transition: background 0.2s ease;
+    }
+
+    nav a:hover {
+      background: rgba(255, 255, 255, 0.15);
+    }
+
+    main {
+      flex: 1;
+      padding: 32px;
+      display: grid;
+      grid-template-rows: auto 1fr;
+      gap: 24px;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    header h2 {
+      font-size: 1.5rem;
+      font-weight: 600;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 24px;
+    }
+
+    .card {
+      background: var(--card);
+      border-radius: var(--radius);
+      padding: 24px;
+      box-shadow: var(--shadow);
+      transition: transform 0.2s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+    }
+
+    .card h3 {
+      font-size: 0.9rem;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+
+    .card p {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--primary);
+    }
+
+    section {
+      background: var(--card);
+      border-radius: var(--radius);
+      padding: 24px;
+      box-shadow: var(--shadow);
+    }
+
+    section h3 {
+      font-size: 1.1rem;
+      margin-bottom: 16px;
+    }
+
+    .list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .list-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px;
+      border-radius: var(--radius);
+      background: #f1f5f9;
+    }
+
+    .badge {
+      padding: 4px 10px;
+      border-radius: 999px;
+      font-size: 0.75rem;
+      background: var(--primary);
+      color: #fff;
+    }
+
+    button {
+      background: var(--primary);
+      color: #fff;
+      border: none;
+      border-radius: var(--radius);
+      padding: 10px 16px;
+      cursor: pointer;
+      transition: background 0.2s ease;
+    }
+
+    button:hover {
+      background: #1d4ed8;
+    }
+
+    @media (max-width: 768px) {
+      aside {
+        width: 72px;
+        padding: 16px;
+      }
+
+      aside h1 span {
+        display: none;
+      }
+
+      nav a span {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <aside>
+    <h1><i class="fa-solid fa-graduation-cap"></i> <span>Course CMS</span></h1>
+    <nav>
+      <a href="#"><i class="fa-solid fa-chart-line"></i><span>Dashboard</span></a>
+      <a href="#"><i class="fa-solid fa-book"></i><span>Courses</span></a>
+      <a href="#"><i class="fa-solid fa-users"></i><span>Students</span></a>
+      <a href="#"><i class="fa-solid fa-folder-open"></i><span>Content</span></a>
+    </nav>
+  </aside>
+
+  <main>
+    <header>
+      <h2>Dashboard Overview</h2>
+      <button onclick="resetData()">Reset Demo Data</button>
+    </header>
+
+    <div class="cards">
+      <div class="card">
+        <h3>Total Courses</h3>
+        <p id="courseCount">6</p>
+      </div>
+      <div class="card">
+        <h3>Enrolled Students</h3>
+        <p id="studentCount">128</p>
+      </div>
+      <div class="card">
+        <h3>Average Progress</h3>
+        <p>72%</p>
+      </div>
+    </div>
+
+    <section>
+      <h3>Recent Activity</h3>
+      <div class="list" id="activityFeed"></div>
+    </section>
+  </main>
+
+  <script>
+    const defaultActivities = [
+      "New course added: Intro to Data Analysis",
+      "Student enrolled: Alex Johnson",
+      "Assignment graded: Python Basics",
+      "Module updated: SQL Fundamentals"
+    ];
+
+    function loadActivities() {
+      const feed = document.getElementById("activityFeed");
+      feed.innerHTML = "";
+      const activities = JSON.parse(localStorage.getItem("activities")) || defaultActivities;
+      activities.forEach(text => {
+        const item = document.createElement("div");
+        item.className = "list-item";
+        item.innerHTML = `<span>${text}</span><span class="badge">New</span>`;
+        feed.appendChild(item);
+      });
+    }
+
+    function resetData() {
+      localStorage.clear();
+      localStorage.setItem("activities", JSON.stringify(defaultActivities));
+      loadActivities();
+    }
+
+    if (!localStorage.getItem("activities")) {
+      localStorage.setItem("activities", JSON.stringify(defaultActivities));
+    }
+
+    loadActivities();
+  </script>
+
+</body>
+</html>
+```
