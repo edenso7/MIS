@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>מבוא למערכות מידע וניהול נתונים</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Alef:wght@400;700&display=swap');
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Alef', sans-serif;
+    }
+
+    body {
+      background-color: #f9f9f9;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    header {
+      background: linear-gradient(to right, #1e3c72, #2a5298);
+      color: white;
+      text-align: center;
+      padding: 60px 20px;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+    }
+
+    .subtitle {
+      font-size: 1.2rem;
+      opacity: 0.9;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      background-color: #fff;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    nav a {
+      padding: 15px 20px;
+      color: #2a5298;
+      text-decoration: none;
+      transition: all 0.3s ease-in-out;
+    }
+
+    nav a:hover {
+      background-color: #eef2f7;
+      color: #1e3c72;
+    }
+
+    section {
+      padding: 60px 20px;
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+      color: #1e3c72;
+    }
+
+    p {
+      font-size: 1.1rem;
+      margin-bottom: 20px;
+    }
+
+    ul {
+      list-style-type: square;
+      margin-left: 30px;
+      margin-bottom: 20px;
+    }
+
+    .features {
+      display: grid;
+      gap: 30px;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      margin-top: 40px;
+    }
+
+    .feature-card {
+      background: white;
+      border-radius: 10px;
+      padding: 25px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      transition: transform 0.3s ease;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-5px);
+    }
+
+    footer {
+      background-color: #1e3c72;
+      color: white;
+      text-align: center;
+      padding: 30px 20px;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>מבוא למערכות מידע וניהול נתונים</h1>
+  <p class="subtitle">קורס מקיף ומעודכן בתחום המידע הדיגיטלי</p>
+</header>
+
+<nav>
+  <a href="#about">אודות הקורס</a>
+  <a href="#topics">נושאים מרכזיים</a>
+  <a href="#trends">מגמות עכשוויות</a>
+  <a href="#contact">הרשמה ויצירת קשר</a>
+</nav>
+
+<section id="about">
+  <h2>על הקורס</h2>
+  <p>
+    קורס "מבוא למערכות מידע וניהול נתונים" הוא קורס בסיסי וחיוני עבור כל מי שרוצה להבין את עולם הארגונים הדיגיטליים, ניהול המידע, ומערכות המידע השונות. הקורס מתאים לתלמידים, סטודנטים, אנשי מקצוע ומנהלים שמעוניינים להעמיק בהבנת תהליכי הארגון והמידע.
+  </p>
+</section>
+
+<section id="topics">
+  <h2>נושאים מרכזיים</h2>
+  <ul>
+    <li>מבוא למערכות מידע</li>
+    <li>ניהול מסדי נתונים</li>
+    <li>אחסון ושחזור מידע</li>
+    <li>אבטחת מידע ופרטיות</li>
+    <li>ניתוח נתונים ו-Big Data</li>
+    <li>מערכות ERP ו-CRM</li>
+    <li>AI ו-machine learning的应用</li>
+  </ul>
+</section>
+
+<section id="trends">
+  <h2>מגמות מובילות בתחום</h2>
+  <div class="features">
+    <div class="feature-card">
+      <h3>אינטליגנציה מלאכותית</h3>
+      <p>שימוש ב-AI לניתוח נתונים וקבלת החלטות מבוססות מידע.</p>
+    </div>
+    <div class="feature-card">
+      <h3>ענן וחישוב מבוזר</h3>
+      <p>ניהול מידע בעננים ציבוריים, פרטיים ומשותפים.</p>
+    </div>
+    <div class="feature-card">
+      <h3>אבטחת מידע</h3>
+      <p>הגנה על נתונים רגישים מפני פגיעות וחדירות.</p>
+    </div>
+    <div class="feature-card">
+      <h3>Blockchain</h3>
+      <p>אחסון מאובטח ושקוף של מידע באמצעות טכנולוגיית בלוקצ'יין.</p>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <h2>הרשמה ויצירת קשר</h2>
+  <p>מעוניין להירשם לקורס או לקבל פרטים נוספים? השאירו פרטים ונחזור אליכם בהקדם:</p>
+  <form style="display:flex; flex-direction:column; gap:10px; width:100%; max-width:500px;">
+    <input type="text" placeholder="שם מלא" required style="padding:10px;" />
+    <input type="email" placeholder="אימייל" required style="padding:10px;" />
+    <textarea placeholder="הודעה" rows="4" style="padding:10px;"></textarea>
+    <button type="submit" style="background:#1e3c72; color:white; padding:12px; border:none; cursor:pointer;">שלח</button>
+  </form>
+</section>
+
+<footer>
+  <p>&copy; 2025 מבוא למערכות מידע וניהול נתונים | כל הזכויות שמורות</p>
+</footer>
+
+<script>
+  document.querySelectorAll('nav a').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      e.preventDefault();
+      const target = document.querySelector(this.getAttribute('href'));
+      window.scrollTo({
+        top: target.offsetTop - 70,
+        behavior: 'smooth'
+      });
+    });
+  });
+
+  // Optional animation on scroll
+  window.addEventListener("scroll", () => {
+    const elements = document.querySelectorAll(".feature-card");
+    elements.forEach(el => {
+      const position = el.getBoundingClientRect().top;
+      const screenPosition = window.innerHeight / 1.3;
+      if (position < screenPosition) {
+        el.style.opacity = "1";
+        el.style.transform = "translateY(0)";
+      }
+    });
+  });
+
+  // Initial state for cards
+  document.querySelectorAll(".feature-card").forEach(card => {
+    card.style.opacity = "0";
+    card.style.transform = "translateY(20px)";
+    card.style.transition = "all 0.5s ease-out";
+  });
+</script>
+
+</body>
+</html>
